@@ -1,0 +1,994 @@
+%% Garcia's latex template for Activities Drescriptive Memorial Report
+%% Version 0.2
+%% (c) 2015 Vinicius Cardoso Garcia (vcg@cin.ufpe.br)
+%%
+%% This document is based on latex template from Prof. Daniel Cunha.
+%%
+%% Reference commands. Use the following commands to make references in your
+%% text:
+%%          \figref  -- for Figure reference
+%%          \tabref  -- for Table reference
+%%          \eqnref  -- for equation reference
+%%          \chapref -- for chapter reference
+%%          \secref  -- for section reference
+%%          \appref  -- for appendix reference
+%%          \axiref  -- for axiom reference
+%%          \conjref -- for conjecture reference
+%%          \defref  -- for definition reference
+%%          \lemref  -- for lemma reference
+%%          \theoref -- for theorem reference
+%%          \corref  -- for corollary reference
+%%          \propref -- for proprosition reference
+%%          \pgref   -- for page reference
+%%
+%%          Example: See \chapref{chap:introduction}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\documentclass[a4paper,oneside,10pt]{article}
+
+\usepackage{graphicx}
+\usepackage{amsmath,amstext,amssymb,amsfonts}
+\usepackage[none]{hyphenat}
+\usepackage{fancyhdr}
+\usepackage{cite}
+\usepackage{indentfirst}
+%\usepackage{path}
+\usepackage[usenames, dvipsnames]{color}
+
+\usepackage{pdfsync}
+\usepackage{url}
+\usepackage{setspace}
+\usepackage[latin1,utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{colortbl}
+\newcommand{\SetRowColor}[1]{\noalign{\gdef\RowColorName{#1}}\rowcolor{\RowColorName}}
+
+\definecolor{MyRed}{rgb}{1,0.2,0.1}
+\definecolor{light-gray}{gray}{0.95}
+\definecolor{gray}{gray}{0.6}
+
+\usepackage{booktabs}
+\usepackage{ctable}
+\usepackage{setspace}
+\usepackage[multidot]{grffile}
+\usepackage[final]{pdfpages}
+
+\usepackage{titlesec}
+
+\usepackage[toc,page]{appendix}
+\newcommand{\appref}[1]{\@appendixname~\ref{#1}\xspace}
+%\usepackage{xifthen}
+
+\usepackage[bookmarks,colorlinks,pdfpagelabels,
+pdftitle={Memorial Descritivo de Atividades}, pdfauthor={Vinicius Cardoso Garcia},
+pdfsubject={Solicita\c{c}\~{a}o de progresss\~{a}o funcional docente de Adjunto N\'{\i}vel 3 para Adjunto N\'{\i}vel 4 apresentada \`{a} Comiss\~{a}o de Avalia\c{c}\~{a}o de Progress\~{a}o Horizontal do Centro de Inform\'{a}tica da Universidade Federal de Pernambuco.},
+pdfcreator={Vinicius Cardoso Garcia}, pdfkeywords={Progressão, Adjunto, UFPE, CIn, Docente, Horizontal}]{hyperref}
+
+\newcommand{\otoprule}{\midrule[\heavyrulewidth]}
+
+% Defini\c{c}\~{a}o de margens
+\setlength{\textwidth}{16cm} %
+\setlength{\textheight}{23cm} %
+\setlength{\oddsidemargin}{0cm} %
+\setlength{\evensidemargin}{0cm} %
+\setlength{\topmargin}{0cm}
+
+\renewcommand{\abstractname}{Resumo}
+\renewcommand{\contentsname}{\'{I}ndice Anal\'{\i}tico}
+\renewcommand{\refname}{Refer\^{e}ncias}
+\renewcommand{\appendixname}{Ap\^{e}ndice}
+\renewcommand{\tablename}{Tabela}
+
+%% Formata\c{c}\~{a}o do cabe\c{c}alho e rodap\'{e}
+\lhead{\footnotesize Memorial Descritivo de Atividades} %
+\rhead{\footnotesize \emph{Vinicius Cardoso Garcia}} %
+\chead{} %
+\cfoot{} %
+\lfoot{\footnotesize\nouppercase\leftmark} %
+\rfoot{\bfseries\thepage}
+\renewcommand{\footrulewidth}{0.1pt}
+
+% Comando para inserir n\'{u}mero de documento
+\newcounter{document}%[section]
+\setcounter{document}{0}
+\renewcommand\theenumi{\arabic{section}.\arabic{enumi}}
+\newcommand\Doc{{\addtocounter{document}{1}\mbox{\sffamily\bfseries [Doc. \arabic{document}]}}}
+
+% Comando para repetir um n\'{u}mero de documento j\'{a} citado
+% \mbox{\sffamily{\bfseries{[Doc. XX]}}}
+
+%% Alternativa na edi\c{c}\~{a}o dos comandos.
+%% Comando para inserir n\'{u}mero de documento
+% \newcommand\thedocument{%
+%    \ifthenelse{\arabic{subsection}=0}
+%      {\thesection.\arabic{document}}
+%      {\thesubsection.\arabic{document}}}
+% \newcounter{document}[section]
+% \setcounter{document}{0}
+% \renewcommand\theenumi{\arabic{section}.\arabic{enumi}}
+% \ifthenelse{\arabic{subsection} = 0}{\newcommand\Doc{{\stepcounter{document}\bfseries [Doc. \arabic{section}.\arabic{document}]}}}{\newcommand\Doc{{\stepcounter{document}\bfseries [Doc. \arabic{section}.\arabic{subsection}.\arabic{document}]}}}
+% %\newcommand\Doc{{\addtocounter{document}{1}\mbox{\bfseries [Doc. \arabic{document}]}}}
+
+
+% Ambiente para centralizar vertical
+\newenvironment{vcenterpage}
+     {\newpage\vspace*{\fill}}
+     {\vspace*{\fill}\par\pagebreak}
+
+\sloppy
+
+\pagestyle{fancy}
+
+\setcounter{secnumdepth}{4}
+
+\begin{document}
+
+\begin{titlepage}
+
+\vspace{-5.0cm}
+
+\begin{figure}[!htb]
+ \centering{\includegraphics[scale=4.0]{logo2.eps}}
+ \label{fig:UFPE_logo}
+\end{figure}
+
+\begin{center}
+\vspace{1cm}
+%{\huge \textsf{Solicita\c{c}\~{a}o de Progress\~{a}o Funcional Docente}} \\[1cm]
+\rule{1.0\textwidth}{1pt} \\ [0.5cm]
+{\Huge \textbf{\textsf{Memorial Descritivo de Atividades}}} \\
+\rule{1.0\textwidth}{1pt} \\
+\vspace{2cm}
+
+\doublespacing
+{\Large \textsf{Solicita\c{c}\~{a}o de progresss\~{a}o funcional docente de \textbf{Adjunto N\'{\i}vel 3 para Adjunto N\'{\i}vel 4} apresentada \`{a} Comiss\~{a}o de Avalia\c{c}\~{a}o de Progress\~{a}o Horizontal do Centro de Inform\'{a}tica da Universidade Federal de Pernambuco}}\\
+\vspace{1.5cm}
+{\LARGE \textsf{Solicitante: \textbf{Vinicius Cardoso Garcia}}}\\
+\vspace{0.5cm}
+{\Large \textsf{SIAPE: \textbf{1807586}}} \\
+\vspace{0.5cm}
+{\Large \textsf{Per\'{\i}odo: \textbf{20/08/2014 - 19/08/2016}}} \\
+
+\vspace{2.0cm}
+
+\normalsize \textsf{Setembro de 2016}
+
+\end{center}
+\thispagestyle{empty}
+\end{titlepage}
+
+
+\tableofcontents
+%\include{Lista_Anexos} \cleartooddpage[\thispagestyle{empty}]
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% APRESENTA\c{C}\~{A}O
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section*{Apresenta\c{c}\~{a}o}
+\vspace{0.3cm}
+
+\begin{onehalfspace}
+
+Memorial apresentado por \textbf{Vinicius Cardoso Garcia}, Professor Adjunto 3, lotado no Departamento de Informa\c{c}\~{a}o e Sistemas do Centro de Inform\'{a}tica (CIn) da Universidade Federal de Pernambuco (UFPE), para avalia\c{c}\~{a}o de desempenho acad\^{e}mico, para fins de acesso por Progress\~{a}o Horizontal \`{a} classe de Professor Adjunto N\'{\i}vel 4.
+
+O presente memorial relata as atividades desempenhadas no per\'{\i}odo de \textbf{20 de Agosto de 2014 a 19 de Agosto de 2016} e foi elaborado com base nas diretrizes estabelecidas nas Resolu\c{c}\~{o}es 04/2008 e 02/2011 do Conselho Universit\'{a}rio (CONSUN) da UFPE e na Portaria 554, de 20/06/2013, do Minist\'{e}rio da Educa\c{c}\~{a}o (MEC). Os documentos comprobat\'{o}rios referenciados neste memorial est\~{a}o organizados em volumes anexos devidamente numerados. Por fim, os Anexos que se referem a artigos publicados em confer\^{e}ncias e peri\'{o}dicos cont\'{e}m apenas a primeira p\'{a}gina do trabalho e o email informando a aceita\c{c}\~{a}o do trabalhao para publica\c{c}\~{a}o (quando pertinente).
+
+\end{onehalfspace}
+
+\subsection*{Esclarecimentos}
+
+Aqui nesta seção especial podem ser listadas algumas observa\c{c}\~{o}es acerca da documenta\c{c}\~{a}o comprobat\'{o}ria para dirimir poss\'{\i}veis d\'{u}vidas da Comiss\~{a}o Avaliadora. A numera\c{c}\~{a}o indicada corresponde \`{a} numera\c{c}\~{a}o do Anexo.
+
+\begin{itemize}
+
+\item [18.] Artigo dispon\'{\i}vel em \verb"dx.doi.org/10.14209/sbrt.2013.182".
+\item [19.] Lista de artigos aceitos dispon\'{\i}vel em \verb"http://www.sbrt.org.br/sbrt2012/artigos.html". O artigo em quest\~{a}o possui identifica\c{c}\~{a}o 98879.
+\item E assim por diante.
+
+\end{itemize}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Grupo 1 - Atividades de Ensino
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Atividades de Ensino}
+
+%A seguir, listo as atividades de ensino que realizei no per\'{\i}odo, separadas por subgrupo, conforme rege o documento tal.
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 1.1 - Orienta\c{c}\~{o}es e Co-Orienta\c{c}\~{o}es
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Orienta\c{c}\~{o}es e Co-Orienta\c{c}\~{o}es}
+\vspace{0.3cm}
+
+\subsubsection{Orienta\c{c}\~{a}o de Teses de Doutorado Conclu\'{i}das}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Jack Allan Bauer \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:phd-concluidas}]}}} \\
+            \textbf{T\'{\i}tulo da Tese:} Salvando o mundo em 24 horas.\\
+            \textbf{Data da Defesa:} 6 de Novembro de 2001 \\
+            \textbf{Institui\c{c}\~{a}o:} Universidade Federal de Pernambuco.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Co-Orienta\c{c}\~{a}o de Teses de Doutorado Conclu\'{i}das}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Thomas A. Anderson \mbox{\sffamily{\bfseries{[Doc. \ref{co-advisor:phd-concluidas}]}}}\\
+            \textbf{T\'{\i}tulo da Tese:} The Matrix \\
+            \textbf{Data da Defesa:} 31 de Março de 1999 \\
+            \textbf{Institui\c{c}\~{a}o:} Universidade Federal de Pernambuco.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Orienta\c{c}\~{a}o de Teses de Doutorado em Andamento}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Morpheus Laurence Fishburne) \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:phd-andamento}]}}} \\
+            \textbf{T\'{\i}tulo da Tese:} Nabucodonozor in The Matrix \\
+            \textbf{Data de In\'{\i}cio:} Mar\c{c}o de 2001 \\
+            \textbf{Institui\c{c}\~{a}o:} CIn/UFPE
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Co-Orienta\c{c}\~{a}o de Teses de Doutorado em Andamento}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Anakin Skywalker \mbox{\sffamily{\bfseries{[Doc. \ref{co-advisor:phd-andamento}]}}}\\
+            \textbf{T\'{\i}tulo da Tese:} A Ameaça Fantasma \\
+            \textbf{Data de In\'{\i}cio:} Maio de 1999 \\
+            \textbf{Institui\c{c}\~{a}o:} CIn/UFPE
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Orienta\c{c}\~{a}o de Disserta\c{c}\~{o}es de Mestrado Conclu\'{i}das}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:}  Obi-Wan Kenobi \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:msc-concluidas}]}}} \\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} A Vingança dos Sith\\
+            \textbf{Tipo:} Acadêmico \\%| Profissional\\
+            \textbf{Data da Defesa:} 19 de Maio de 2005\\
+            \textbf{Institui\c{c}\~{a}o:} CIn/UFPE.
+
+\item       \textbf{Aluno:} Darth Maul \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:mprof-concluidas}]}}} \\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Lord of the Sith\\
+            \textbf{Tipo:} Profissional\\
+            \textbf{Data da Defesa:} 19 de Maio de 2005\\
+            \textbf{Institui\c{c}\~{a}o:} CIn/UFPE.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Co-Orienta\c{c}\~{a}o de Disserta\c{c}\~{o}es de Mestrado Conclu\'{i}das}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Anthony Edward Stark \mbox{\sffamily{\bfseries{[Doc. \ref{co-advisor:msc-concluidas}]}}} \\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Tales of Suspense\\
+            \textbf{Tipo:} Acadêmico \\%| Profissional\\
+            \textbf{Data da Defesa:} Março de 1963 \\
+            \textbf{Institui\c{c}\~{a}o:} Marvel Comics
+
+\item       \textbf{Aluno:} Henry Jonathan Pym \mbox{\sffamily{\bfseries{[Doc. \ref{co-advisor:mprof-concluidas}]}}} \\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Homem-Formiga\\
+            \textbf{Tipo:} Profissional\\
+            \textbf{Data da Defesa:} Março de 1963 \\
+            \textbf{Institui\c{c}\~{a}o:} Marvel Comics
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Orienta\c{c}\~{a}o de Disserta\c{c}\~{o}es de Mestrado em Andamento}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Stanley Martin Lieber \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:msc-andamento}]}}}\\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Stan Lee\\
+            \textbf{Tipo:} Acadêmico \\%| Profissional\\
+            \textbf{Data de In\'{\i}cio:} 22 de Dezembro de 1922\\
+            \textbf{Institui\c{c}\~{a}o:} Marvel Comics
+
+\item       \textbf{Aluno:} Robert Bruce Banner \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:mprof-andamento}]}}}\\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Avengers vol. 1\\
+            \textbf{Tipo:} Profissional\\
+            \textbf{Data de In\'{\i}cio:} 22 de Dezembro de 1922\\
+            \textbf{Institui\c{c}\~{a}o:} Marvel Comics
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+\subsubsection{Co-Orienta\c{c}\~{a}o de Disserta\c{c}\~{o}es de Mestrado em Andamento}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Erik Magnus Lehnsherr \mbox{\sffamily{\bfseries{[Doc. \ref{co-advisor:msc-andamento}]}}}\\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Magneto\\
+            \textbf{Tipo:} Acadêmico \\%| Profissional\\
+            \textbf{Data de In\'{\i}cio:} Setembro de 1963\\
+            \textbf{Institui\c{c}\~{a}o:} Marvel Comics
+
+\item       \textbf{Aluno:} Charles Francis Xavier \mbox{\sffamily{\bfseries{[Doc. \ref{co-advisor:mprof-andamento}]}}}\\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Magneto\\
+            \textbf{Tipo:} Profissional\\
+            \textbf{Data de In\'{\i}cio:} Setembro de 1963\\
+            \textbf{Institui\c{c}\~{a}o:} Marvel Comics
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Orienta\c{c}\~{a}o de Trabalhos de Conclus\~{a}o de Curso}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item       \textbf{Aluno:} Uhtred Ragnarson \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:tcc}]}}}\\
+            \textbf{Curso:} Crônicas Saxônicas\\
+            \textbf{T\'{\i}tulo da Monografia:} O Último Reino\\
+            \textbf{Data da Defesa:} Maio de 2004\\
+            \textbf{Institui\c{c}\~{a}o:} Bebbanburg
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Orienta\c{c}\~{a}o de Monitoria}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Aluno:} Ragnar Lodbrok \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:monitoria}]}}} \\
+        \textbf{Disciplina:}  Engenharia Software e Sistemas (turma SI)\\
+        \textbf{Curso:} Sistemas de Informação\\
+        \textbf{Semestre:} 2015.2
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Orienta\c{c}\~{a}o de Trabalhos de Inicia\c{c}\~{a}o Cient\'{\i}fica}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Aluno:} Gorm den Gamle \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:icc}]}}} \\
+        \textbf{Projeto:} Pedras de Jelling \\
+        \textbf{Tema:} Nórdico antigo \\
+        \textbf{Per\'{\i}odo:} 936 - 938\\
+        \textbf{Financiamento:} CAPES
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Orienta\c{c}\~{a}o de Trabalhos de Apoio Acad\^{e}mico}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Aluno:} Qui-Gon \mbox{\sffamily{\bfseries{[Doc. \ref{advisor:bia}]}}}\\
+        \textbf{Projeto:} Uso da Internet das Coisas no acesso multimodal a informações em um Smart Campus.\\
+        \textbf{Tema:} Comunica\c{c}\~{o}es sem Fio \\
+        \textbf{Categoria:} Iniciação acadêmica (Graduando em Ciência da Computação) – Universidade Federal de Pernambuco.\\
+        \textbf{Per\'{\i}odo:} 01 de Outubro de 2014 a 30 de Setembro de 2015 \\
+        \textbf{Financiamento:} Programa Institucional de Bolsa de Incentivo Acadêmico – BIA, Fundação de Amparo à Ciência e Tecnologia do Estado de Pernambuco (FACEPE), processo número: BIA-0155-1.03/14.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 1.2 - Participa\c{c}\~{a}o em Comiss\~{o}es Examinadoras
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Participa\c{c}\~{a}o em Comiss\~{o}es Examinadoras}
+\vspace{0.3cm}
+
+\subsubsection{Bancas Examinadoras de Concurso}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+\vspace{0.3cm}
+
+\item       \textbf{Descrição:} Parecerista do(s) curso(s) de Sistemas de Informação da Avaliação de Cursos Superiores do Guia do Estudante (GE) 2015 \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-guia-estudante}]}}}\\
+            \textbf{Instituição:} Guia do Estudante / Editora Abril \\
+            \textbf{Data/Período:} 2015 %16 de Agosto de 2015
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Bancas Congressos de Inicia\c{c}\~{a}o Cient\'{i}fica ou de Extens\~{a}o}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+\vspace{0.3cm}
+
+\item       \textbf{Descrição:} Participação na Comissão Avaliadora dos trabalhos na área de Ciências Exatas apresentados na 19ª Jornada de Iniciação Científica da FACEPE \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-jic-facepe}]}}} \\
+            \textbf{Instituição:} Fundação de Amparo a Ciência e Tecnologia do Estado de Pernambuco (FACEPE) \\
+            \textbf{Data/Período:} 09 a 12 de Junho de 2015
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Bancas de Trabalho de Conclus\~{a}o de Curso}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+\vspace{0.3cm}
+
+\item       \textbf{Aluno:} José Welington de Almeida Filho \mbox{\sffamily{\bfseries{[Doc. \ref{app:bancas-tcc}]}}}\\
+            \textbf{T\'{\i}tulo da Monografia:} Uma proposta de uso de Gamification para o ensino de software.\\
+            \textbf{Curso:} Graduação em Ciência da Computação\\
+            \textbf{Universidade:} Universidade Federal de Pernambuco (UFPE)\\
+            \textbf{Data:} 28 de Julho de 2015\\
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Bancas de Disserta\c{c}\~{a}o de Mestrado}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+\vspace{0.3cm}
+
+\item       \textbf{Candidato:} Helaine Solange Lins Barreiros \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-msc-hslb}]}}} \\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} Análise da Completude dos Relatos de Experimentos em Elasticidade na Computação em Nuvem: Um Mapeamento Sistemático\\
+            \textbf{Tipo:} Acadêmico\\
+            \textbf{Programa:} Programa de Pós-Graduação em Ciência da Computação\\
+            \textbf{Universidade:} Universidade Federal de Pernambuco (UFPE)\\
+            \textbf{Data:} 31 de Agosto de 2015
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Bancas de Qualifica\c{c}\~ao / Proposta de Tese de Doutorado}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+\vspace{0.3cm}
+
+\item       \textbf{Candidato:} Thiago Monteiro Prota \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-quali-phd-tmp}]}}} \\
+            \textbf{T\'{\i}tulo da Qualifica\c{c}\~{a}o:} Análises Estrutural e Comportamental Orientadas a Conformidade para o Desenvolvimento de Aplicações Multimídia\\
+            \textbf{Programa:} Programa de Pós-Graduação em Ciência da Computação\\
+            \textbf{Universidade:} Universidade Federal de Pernambuco (UFPE)\\
+            \textbf{Data:} 18 de Setembro de 2015
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Bancas de Tese de Doutorado}
+%\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+\vspace{0.3cm}
+
+\item       \textbf{Candidato:} Julio Cesar Damasceno \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-phd-jcd}]}}} \\
+            \textbf{T\'{\i}tulo da Disserta\c{c}\~{a}o:} UCloud: Uma Abordagem para Implantação de Nuvem Privada para a Administração Pública Federal\\
+            \textbf{Programa:} Programa de Pós-Graduação em Ciência da Computação\\
+            \textbf{Universidade:} Universidade Federal de Pernambuco (UFPE)\\
+            \textbf{Data:} 03 de Setembro de 2015
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Participa\c{c}\~{a}o em Bancas de Sele\c{c}\~{a}o para ingresso e exames de Qualifica\c{c}\~ao de Programa de P\'{o}-Gradua\c{c}\~{a}o \textit{Stricto Sensu}}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+\vspace{0.3cm}
+
+\item       \textbf{Descrição:} Membro Externo da Comissão de Seleção para o Doutorado Sanduíche - PDSE da CAPES \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-pgcomp-pdse}]}}} \\
+            \textbf{Programa:} Programa de Pós-Graduação em Ciência da Computação (PGCOMP) do aluno Alcemir Rodrigues Santos\\
+            \textbf{Instituição:} Universidade Federal da Bahia (UFBA) \\
+            \textbf{Per\'{\i}odo de Realiza\c{c}\~{a}o:} 15 de Junho de 2015
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 1.3 - Atividades de Ensino na Graduação e na Pós-Graduação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Atividades de Ensino na Graduação e na Pós-Graduação}
+\vspace{0.3cm}
+
+\subsubsection{Atividades de Ensino: Disciplinas na Gradua\c{c}\~{a}o}
+\vspace{0.3cm}
+
+Na Tabela \ref{Tab:Disc_Grad}, est\~{a}o listadas as disciplinas ministradas nos cursos de gradua\c{c}\~{a}o de Sistemas de Informa\c{c}\~{a}o no per\'{\i}odo de 20/08/2014 a 19/08/2016. As disciplinas est\~{a}o organizadas por semestre, com a identifica\c{c}\~{a}o do curso, da turma e da disciplina, esta \'{u}ltima com sua respectiva carga hor\'{a}ria. Adicionalmente, consta na referida Tabela a carga hor\'{a}ria m\'{e}dia semestral ao longo do per\'{\i}odo de avalia\c{c}\~{a}o.
+
+\begin{table}[!htpb]
+\centering \small
+\caption{\texttt{Disciplinas de gradua\c{c}\~{a}o lecionadas no per\'{\i}odo considerado} }
+\begin{tabular}{ccccc}
+\toprule
+\textbf{Semestre} & \textbf{Curso} & \textbf{Turma} & \textbf{Disciplina} & \textbf{C.H.} \\
+\otoprule
+  & Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF687 - Introdu\c{c}\~{a}o \`{a} Multim\'{\i}dia & 02\\
+$2012.1$ & Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+  & Engenharia da Computa\c{c}\~{a}o & $I6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+\cmidrule{1-5}
+  & Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF687 - Introdu\c{c}\~{a}o \`{a} Multim\'{\i}dia & 02\\
+$2012.2$ & Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+  & Engenharia da Computa\c{c}\~{a}o & $E6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+  & Engenharia da Computa\c{c}\~{a}o & $E0$ & ES348 - Teoria da Informa\c{c}\~{a}o & 04\\
+\cmidrule{1-5}
+\multicolumn{4}{r}{\textbf{Carga Hor\'{a}ria M\'{e}dia Semestral} (2012)} & \textbf{08} \\
+\otoprule
+& Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF687 - Introdu\c{c}\~{a}o \`{a} Multim\'{\i}dia & 02\\
+$2013.1$ & Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+  & Engenharia da Computa\c{c}\~{a}o & $E6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+  & Engenharia da Computa\c{c}\~{a}o & $E0$ & IF856 - T\'{o}picos Avan\c{c}ados em Proc. Sinais & 04\\
+\cmidrule{1-5}
+& Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF687 - Introdu\c{c}\~{a}o \`{a} Multim\'{\i}dia & 02\\
+$2013.2$ & Ci\^{e}ncia da Computa\c{c}\~{a}o & $I6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+  & Engenharia da Computa\c{c}\~{a}o & $I6$ & IF690 - Hist\'{o}ria e Futuro da Computa\c{c}\~{a}o & 02\\
+\cmidrule{1-5}
+\multicolumn{4}{r}{\textbf{Carga Hor\'{a}ria M\'{e}dia Semestral} (2013)} & \textbf{08} \\
+\bottomrule
+\end{tabular}
+\label{Tab:Disc_Grad}
+\end{table}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 1.4 - Avaliação Didática Docente pelo Discente
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\vspace{5.0cm}
+\subsection{Avaliação Didática Docente pelo Discente}
+\vspace{0.3cm}
+
+%Nada a declarar neste subgrupo.
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Período:} 2015.1 \textbf{[Doc. \ref{evaluation:2015-1}]}\\
+        \textbf{Disciplina:} IF1006 - TÓPICOS AVANÇADOS EM SI 3, Turma: S0\\
+        \textbf{Disciplina:} IF977 - ENGENHARIA DE SOFTWARE, Turma: S4\\
+        \textbf{Nota:} 10.
+
+\item   \textbf{Período:} 2014.2 \\
+        \textbf{Disciplina:} IF1006 - TÓPICOS AVANÇADOS EM SI 3, Turma: S0\\
+        \textbf{Disciplina:} IF977 - ENGENHARIA DE SOFTWARE, Turma: S4\\
+        \textbf{Nota:} \textbf{Não houve avaliação didática docente pelo discente}.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Grupo 2: Atividades de Produ\c{c}\~{a}o Cient\'{\i}fica e T\'{e}cnica, Art\'{i}stica e Cultural
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Atividades de Produ\c{c}\~{a}o Cient\'{\i}fica e T\'{e}cnica, Art\'{i}stica e Cultural}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 2.1 - Produtividade de Pesquisa
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Produtividade de Pesquisa}
+\vspace{0.3cm}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Bolsista de produtividade em pesquisa e em inova\c{c}\~{a}o tecnol\'{o}gica}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item \textbf{T\'{\i}tulo do projeto:} The Death Star \textbf{[Doc. \ref{app:bolsista-prod}]}\\
+      \textbf{N\'{u}mero do processo:} DV-1123-5.8/13\\
+      \textbf{Financiador/Edital:} Conselho Nacional de Desenvolvimento Científico e Tecnológico, Edital MCTI/CNPq Nº 14/2013\\
+      \textbf{Per\'{\i}odo (in\'{\i}cio-fim):} 2015 - 2018\\
+      \textbf{Situação:} Desenvolvimento tecnológico\\
+      \textbf{Natureza:} Pesquisa.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Participa\c{c}\~{a}o em Eventos Cient\'{\i}ficos (com apresenta\c{c}\~{a}o de trabalho ou oferecimento de cursos, palestras ou debates)}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Evento:} Congresso Brasileiro de Software: Teoria e Prática \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-cbsoft}]}}} \\
+        \textbf{Propósito:} Participante\\
+        \textbf{Período:} 21 a 25 de Setembro de 2015\\
+        \textbf{Local:} Belo Horizonte-MG, Brasil.
+
+\item   \textbf{Evento:} XII Encontro Anual de Computação (EnAComp) \mbox{\sffamily{\bfseries{[Doc. \ref{app:2015-enacomp}]}}} \\
+        \textbf{Propósito (i):} Ouvinte\\
+        \textbf{Propósito (ii):} Apresentação da palestra ``Empreendedorismo e criação de negócios intensivos em software''\\
+        \textbf{Propósito (ii):} Apresentação do minicurso ``Desenvolvimento de SaaS / Engenharia de Sofwtarte como Serviço'', com duração de 12 horas\\
+        \textbf{Período:} 16 a 18 de Setembro de 2015\\
+        \textbf{Local:} , Brasil.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+% TODO
+\subsubsection{Autoria de artigos completos publicados em anais de congresso, em jornais e revistas de circulação nacional e internacional na sua área}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item GAMA, Kiev Santos; WANDERLEY, Rafael Roballo; MARANHÃO, Daniel Barbosa; GARCIA, Vinicius Cardoso. \textbf{TagHunt: Uma plataforma Combinando a Internet das Coisas com Scavenger Hunt Games}. In: 7º Simpósio Brasileiro de Computação Ubíqua e Pervasiva (SBCUP), Evento do XXXV Congresso da Sociedade Brasileira de Computação, Recife, 20 a 23 de Julho de 2015. \textbf{[Doc. \ref{conf:2015-sbcup}]}
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+% TODO
+\subsubsection{Arbitragem de Artigos Técnico-Científicos Nacionais e Internacionais na sua área de atuação}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Peri\'{o}dico:} IEEE Transactions on Services Computing \textbf{[Doc. \ref{reviewer:2015-tsc}]}\\
+        \textbf{Editora:} IEEE Computer Society\\
+        \textbf{ISSN:} 1939-1374\\
+        \textbf{URL:} \url{http://www.computer.org/web/tsc}
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+% TODO
+\subsubsection{Coordena\c{c}\~{a}o e/ou Participa\c{c}\~{a}o em Projetos Aprovados por \'{O}rg\~{a}os de Fomento}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item \textbf{T\'{\i}tulo do projeto:} BIGStore - Evolução da plataforma Ustore para Armazenamento, Manipulação e Experimentação de Grandes Volumes de Dados \textbf{[Doc. \ref{project:2015-facepe-pepe}]}\\
+      \textbf{Fun\c{c}\~{a}o no projeto:} Integrante\\
+      \textbf{N\'{u}mero do processo:} SIN-0199-1.03/15\\
+      \textbf{Financiador/Edital:} Fundação de Amparo à Ciência e Tecnologia do Estado de Pernambuco, Edital FACEPE 23/2014 - PESQUISADOR NA EMPRESA DE PERNAMBUCO (PEPE)\\
+      \textbf{Per\'{\i}odo (in\'{\i}cio-fim):} 2015 - 2018\\
+      \textbf{Situação:} Desenvolvimento tecnológico\\
+      \textbf{Natureza:} Pesquisa.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Consultoria \`{a}s Institui\c{c}\~{o}es de Fomento \`{a} Pesquisa, Ensino e Extens\~{a}o}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Fun\c{c}\~{a}o:} Avaliador de Projetos de Pesquisa (modalidade Subven\c{c}\~{a}o Econ\^{o}mica - PAPPE Integra\c{c}\~{a}o) - Edital 10.2/2012 \textbf{[Doc. \ref{consulting:2015-facepe-pepe}]}\\
+        \textbf{Institui\c{c}\~{a}o:} Fundação de Amparo à Ciência e Tecnologia do Estado de Pernambuco (FACEPE).
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Pr\^{e}mios Recebidos pela Produ\c{c}\~{a}o Cient\'{\i}fica e T\'{e}cnica}
+\vspace{0.3cm}
+
+Nada a declarar neste subgrupo.
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item Melhor artigo publicado no Simpósio Intergálito da República, 2014 \textbf{[Doc. \ref{award:2014}]}.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 2.2 - Produção Científica
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\subsection{Produção Científica}
+\vspace{0.3cm}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Trabalhos Publicados em Peri\'{o}dicos Especializados do Pa\'{\i}s ou do Exterior}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item AFONSO, Ricardo Alexandre ; BRITO, Kellyton dos Santos ; DO NASCIMENTO, CLÓVIS HOLANDA ; COSTA, L.  C. ; ÁLVARO, ALEXANDRE ; Garcia, Vinicius Cardoso . ``(Br-SCMM) Brazilian Smart City Maturity Model: A Perspective from the Health Domain''. Studies in Health Technology and Informatics, v. 216 (MEDINFO 2015: eHealth-enabled Health), p. 983, 2015, doi: 10.3233/978-1-61499-564-7-983 \colorbox{yellow}{(Qualis XX)} \textbf{[Doc. \ref{journal:2015-medinfo}]}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Grupo 3: Atividades de Extens\~{a}o
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Atividades de Extens\~{a}o}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 3.1 - Coordenação e Orientação
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Subgrupo 3.1 - Coordenação e Orientação}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+    \item Coordenação de Projeto de Extensão \textbf{[Doc. \ref{extensao:2015}]}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Subgrupo 3.2 - Coordenação de Eventos e Conferencista
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Coordenação de Eventos e Conferencista}
+\vspace{0.3cm}
+
+%------------------------------------------------------------------------------
+
+\subsubsection{Comiss\~{a}o Organizadora de Eventos Internacional, Nacional, Regional ou Local}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+    \item Program Committee Member of the 9th Brazilian Symposium on Software Components, Architectures and Reuse (SBCARS 2015) \textbf{[Doc. \ref{reviewer:2015-sbcars}]}
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Grupo 4: Atividades de Forma\c{c}\~{a}o e Capacita\c{c}\~{a}o Acad\^{e}mica
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Atividades de Forma\c{c}\~{a}o e Capacita\c{c}\~{a}o Acad\^{e}mica}
+\vspace{0.3cm}
+
+%------------------------------------------------------------------------------
+
+\subsection{Atualiza\c{c}\~{a}o e Cursos de Capacita\c{c}\~{a}o ou Extens\~{a}o na \'{A}rea de Conhecimento ou Afins com no M\'{\i}nimo 40h}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Curso:}  Machine Learning (Coursera) \textbf{[Doc. \ref{courses:2015}]} \\
+        \textbf{Modalidade:} Ensino \`{a} dist\^{a}ncia (EAD) \\
+        \textbf{Carga Hor\'{a}ria:} 50 h  \\
+        \textbf{Instrutor:} Prof. Andrew Ng \\
+        \textbf{Institui\c{c}\~{a}o:} Stanford University
+
+\end{enumerate}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Grupo 5: Atividades Administrativas
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newpage
+\section{Atividades Administrativas}
+\vspace{0.3cm}
+
+%------------------------------------------------------------------------------
+
+\subsection{Membro de Comiss\~{a}o Tempor\'{a}ria}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+
+\item   \textbf{Fun\c{c}\~{a}o:} Membro de comissão temporária \textbf{[Doc. \ref{committee:temp-2015}]}\\
+        \textbf{Comiss\~{a}o:} Presidente\\
+        \textbf{Per\'{\i}odo:} 01 a 15 de Outubro de 2015
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsection{Coordenador de Curso Pós-Graduação \textbf{strictu sensu} }
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Fun\c{c}\~{a}o:} Tutor da turma do Mestrado Profissional em Ciência da Computação com ênfase em Sistemas de Informação \textbf{[Doc. \ref{committee:postgrad-2015}]}\\
+        \textbf{Per\'{\i}odo:} 01 de Dezembro de 2014 a 01 de Dezembro de 2017.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsection{Membro de Núcleo Docente Estruturante}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Fun\c{c}\~{a}o:} Membro do Núcleo Docente Estruturante do Curso de Graduação em Sistemas de Informação \textbf{[Doc. \ref{committee:nde-2015}]}\\
+        \textbf{Per\'{\i}odo:} 21 de Julho de 2015 a 20 de Julho de 2016.
+
+\item   \textbf{Fun\c{c}\~{a}o:} Membro do Núcleo Docente Estruturante do Curso de Graduação em Sistemas de Informação \textbf{[Doc. \ref{committee:nde-2014}]}\\
+        \textbf{Per\'{\i}odo:} 21 de Julho de 2014 a 20 de Julho de 2015.
+
+\end{enumerate}
+
+%------------------------------------------------------------------------------
+
+\subsection{Membro de Colegiados de Curso de Gradua\c{c}\~{a}o e P\'{o}s-Gradua\c{c}\~{a}o}
+\vspace{0.3cm}
+
+\begin{enumerate}
+\renewcommand{\labelenumi}{{\large\bfseries\arabic{enumi}.}}
+
+\item   \textbf{Fun\c{c}\~{a}o:} Membro do Colegiado da P\'{o}s-Gradua\c{c}\~{a}o \textbf{(em curso)}  \textbf{[Doc. \ref{committee:colegiado-postgrad-2015}]} \\
+        \textbf{Per\'{\i}odo:} Desde Setembro de 2010.
+
+\item   \textbf{Fun\c{c}\~{a}o:} Membro do Colegiado do Curso de Graduação em Ciência da Computação \textbf{[Doc. \ref{committee:colegiado-cc-2015}]} \\
+        \textbf{Per\'{\i}odo:} 15 de Outubro de 2015 a 14 de Outubro de 2016.
+
+\item   \textbf{Fun\c{c}\~{a}o:} Membro do Colegiado do Curso de Graduação em Sistemas de Informação \textbf{[Doc. \ref{committee:colegiado-si-2015}]} \\
+        \textbf{Per\'{\i}odo:} 21 de Julho de 2015 a 20 de Julho de 2016.
+
+\item   \textbf{Fun\c{c}\~{a}o:} Membro do Colegiado do Curso de Graduação em Sistemas de Informação \textbf{[Doc. \ref{committee:colegiado-si-2014}]} \\
+        \textbf{Per\'{\i}odo:} 21 de Julho de 2014 a 20 de Julho de 2015.
+
+\end{enumerate}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% LISTA DE ANEXOS
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newpage
+\section{Lista de Anexos}
+
+A Tabela \ref{Tab:ListaAnexos} cont\'{e}m a numera\c{c}\~{a}o e uma pequena descri\c{c}\~{a}o dos documentos comprobat\'{o}rios em anexo. Quando for o caso, h\'{a} uma indica\c{c}\~{a}o entre par\^{e}nteses, ao final da descri\c{c}\~{a}o, do setor respons\'{a}vel pela emiss\~{a}o do documento.
+
+
+\begin{table}[h]
+\small
+\caption{\texttt{Rela\c{c}\~{a}o numerada dos Anexos comprobat\'{o}rios}.}
+\begin{tabular}{cl}
+\toprule
+\large{\textbf{\texttt{Doc}}} & \multicolumn{1}{c}{\large{\textbf{\texttt{Descri\c{c}\~{a}o}}}} \\
+\otoprule
+  1 & Declara\c{c}\~{a}o de orienta\c{c}\~{a}o de Mestrado de Maxwell Silva (PPGES/UPE). \\
+  %\cmidrule{1-2}
+  2 & Declara\c{c}\~{a}o de orienta\c{c}\~{a}o de Mestrado de Bruna Melo (PPGES/UPE). \\
+  %\cmidrule{1-2}
+  3 & Declara\c{c}\~{a}o de orienta\c{c}\~{a}o de TCC de Diocleciano Neto e Lucas Paes (Gradua\c{c}\~{a}o EC CIn). \\
+  %\cmidrule{1-2}
+  4 & Termo de orienta\c{c}\~{a}o de Monitoria de Lucas Harada - 2013.2 (PROACAD/UFPE). \\
+  %\cmidrule{1-2}
+  5 & Declara\c{c}\~{a}o de orienta\c{c}\~{a}o de Monitoria de Lucas Harada - 2013.1 (Sec Grad CIn). \\
+  %\cmidrule{1-2}
+  6 & Declara\c{c}\~{a}o de orienta\c{c}\~{a}o de IC de Djeefther Albuquerque (PROPESQ/UFPE). \\
+  %\cmidrule{1-2}
+  7 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o em banca de Doutorado de Isaac Benchimol (PPGEE/UFPE). \\
+  %\cmidrule{1-2}
+  8 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o em banca de Doutorado de Walter Guimar\~{a}es (PPGEE/UFPE). \\
+  \cmidrule{1-2}
+  9 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o em banca de Mestrado de Joyce Teixeira (PGCC/UFPE). \\
+    & C\'{o}pia da Portaria PGCC 166/2012 - Composi\c{c}\~{a}o de banca de Mestrado (PGCC/UFPE). \\
+  \cmidrule{1-2}
+  10 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o em banca de Mestrado de Antonio Assun\c{c}\~{a}o (PPGES/UPE). \\
+     & C\'{o}pia da Portaria PPGES 11/2013 - Composi\c{c}\~{a}o de banca de Mestrado (PPGES/UPE). \\
+  \cmidrule{1-2}
+  11 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o em banca de Mestrado de Maxwell Silva (PPGES/UPE). \\
+     & C\'{o}pia da Portaria PPGES 15/2013 - Composi\c{c}\~{a}o de banca de Mestrado (PPGES/UPE). \\
+  \cmidrule{1-2}
+  12 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o em banca de Mestrado de Bruna Melo (PPGES/UPE). \\
+     & C\'{o}pia da Portaria PPGES 16/2013 - Composi\c{c}\~{a}o de banca de Mestrado (PPGES/UPE). \\
+  \cmidrule{1-2}
+  13 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o em banca de TCC (Gradua\c{c}\~{a}o-EC CIn). \\
+  %\cmidrule{1-2}
+  14 & Declara\c{c}\~{a}o de particip. em banca de Sele\c{c}\~{a}o de Prof. Tempor\'{a}rio do CIn/UFPE (Dire\c{c}\~{a}o CIn). \\
+  %\cmidrule{1-2}
+  15 & Relat\'{o}rio de disciplinas lecionadas na gradua\c{c}\~{a}o no per\'{\i}odo de avalia\c{c}\~{a}o (SIGA-UFPE).\\
+  %\cmidrule{1-2}
+  16 & C\'{o}pia do certificado de participa\c{c}\~{a}o no XXX SBrT. \\
+  %\cmidrule{1-2}
+  17 & C\'{o}pia do certificado de participa\c{c}\~{a}o no XXXI SBrT. \\
+  %\cmidrule{1-2}
+  18 & C\'{o}pias do resumo publicado e do e-mail de aceita\c{c}\~{a}o de trabalho no XXXI SBrT. \\
+  %\cmidrule{1-2}
+  19 & C\'{o}pias do artigo publicado e do e-mail de aceita\c{c}\~{a}o de trabalho no XXX SBrT. \\
+  %\cmidrule{1-2}
+  20 a 23 & C\'{o}pias dos artigos publicados e dos e-mails de aceita\c{c}\~{a}o de trabalho no CBA 2012 e XXXI SBrT. \\
+  %\cmidrule{1-2}
+  24 a 31 & C\'{o}pias dos e-mails de convite para revis\~{a}o e finaliza\c{c}\~{a}o do processo (peri\'{o}dicos e eventos). \\
+  \cmidrule{1-2}
+  32 & C\'{o}pia do Resultado do Edital 10/2010 (pags 1,2 e 6) e Termo de Outorga do projeto (FACEPE). \\
+     & C\'{o}pia de correspond\^{e}ncia comprobat\'{o}ria de presta\c{c}\~{a}o de contas do projeto (FACEPE). \\
+  \cmidrule{1-2}
+  33 & C\'{o}pias de e-mail de convite para avaliador e de cabe\c{c}alho do parecer emitido (FACEPE). \\
+  %\cmidrule{1-2}
+  34 & C\'{o}pia do certificado de premia\c{c}\~{a}o de melhor artigo de IC do XXXI SBrT. \\
+  %\cmidrule{1-2}
+  35 & C\'{o}pias do artigo publicado no peri\'{o}dico TEMA e do e-mail de aceita\c{c}\~{a}o. \\
+  %\cmidrule{1-2}
+  36 & C\'{o}pias do artigo publicado no peri\'{o}dico EURASIP J. Adv. Sig. Proc. e do e-mail de aceita\c{c}\~{a}o. \\
+  %\cmidrule{1-2}
+  37 & C\'{o}pias dos e-mails comprobat\'{o}rios de convite e resposta ao convite (MIC-CSC2012). \\
+  %\cmidrule{1-2}
+  38 & C\'{o}pias dos e-mails comprobat\'{o}rios de convite e resposta ao convite (XXXI SBrT). \\
+  %\cmidrule{1-2}
+  39 & C\'{o}pia da declara\c{c}\~{a}o enviada \`{a} Comiss\~{a}o Organizadora da SBPC 2013 (Dire\c{c}\~{a}o CIn). \\
+  %\cmidrule{1-2}
+  40 & Online Course Statement of Accomplishment: Machine Learning - Stanford University - Coursera. \\
+  %\cmidrule{1-2}
+  41 - 42 & Declara\c{c}\~{o}es de participa\c{c}\~{a}o na Comiss\~{a}o de Sele\c{c}\~{a}o do Mestrado CIn - 2012 e 2013. \\
+  %\cmidrule{1-2}
+  43 & Declara\c{c}\~{a}o comprobat\'{o}ria de cargo ocupado - Subcoordena\c{c}\~{a}o de Editais. \\
+  %\cmidrule{1-2}
+  44 & Declara\c{c}\~{a}o de participa\c{c}\~{a}o no Colegiado da P\'{o}s-Gradua\c{c}\~{a}o do CIn. \\
+  %\cmidrule{1-2}
+  45 & C\'{o}pia da Portaria de Designa\c{c}\~{a}o 005/2013 - Colegiado Gradua\c{c}\~{a}o EC CIn (Dire\c{c}\~{a}o CIn). \\
+\bottomrule
+\end{tabular}
+\label{Tab:ListaAnexos}
+\end{table}
+
+% Appendix
+\clearpage
+%\addappheadtotoc
+\appendix
+%\appendixpage
+\newpage
+\section{Documentos comprobatórios}
+Esta seção contém os documentos comprobatórios referentes às atividades listadas neste memorial.
+\addcontentsline{toc}{section}{Documentos comprobatórios}
+\renewcommand{\thesubsection}{\arabic{subsection}}
+% \renewcommand{\subsection}{
+% \titleformat{\subsection}
+%   {\Huge\bfseries\center\vspace{.4\textwidth}\thispagestyle{fancy}} % format
+%   {}                % label
+%   {0pt}             % sep
+%   {\huge}           % before-code
+% }
+
+\include{appendices}
+
+
+\end{document}
+
+%%% EOF
